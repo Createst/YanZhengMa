@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+
+  <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+  <style>
+
+	
+  </style>
+ </head>
+<body>
+	
+	<button class="btn btn-info" id="code">发送验证码</button>
+	<script src="js/jquery.js"></script>
+	<script>
+	var time = 60;
+	var hand;
+		$(function(){
+		
+			$("#code").on("mousedown",function(e){
+				if(e.which!=1)
+				{
+					return;
+				}
+				alert("发送");
+				//这里调用发送函数
+				hand = window.setInterval("downTime()",1000);
+			})
+		})
+
+		function downTime()
+		{
+			time--;
+			if(time == 0)
+			{
+				time = 60;
+				//这里调用重新发送函数
+				alert("重新发送");
+			}
+			$("#code").text(time+"秒后重新发送");
+		}
+	</script>
+ </body>
+</html>
